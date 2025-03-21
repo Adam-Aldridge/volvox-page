@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 12,
+      "title": "Post one",
+      "description": "stuff",
+      "image": "images/image_1741855580282.png",
+      "pdf": "pdfs/pdf_1741855580309.pdf"
+    },
+    {
+      "id": 1,
+      "title": "The Future of Web Development",
+      "image": "images/default.jpeg",
+      "description": "Exploring the latest trends in web development and what the future holds for developers and users alike."
+    },
+    {
+      "id": 2,
+      "title": "The Future of Web Development",
+      "image": "images/default.jpeg",
+      "description": "Exploring the latest trends in web development and what the future holds for developers and users alike."
+    },
+    {
+      "id": 3,
+      "title": "The Future of Web Development",
+      "image": "images/default.jpeg",
+      "description": "Exploring the latest trends in web development and what the future holds for developers and users alike."
+    },
+    {
+      "id": 4,
+      "title": "The Future of Web Development",
+      "image": "images/default.jpeg",
+      "description": "Exploring the latest trends in web development and what the future holds for developers and users alike."
+    }
+  ]
+}

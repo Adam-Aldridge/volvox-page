@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <h1>{{pageTitle}}</h1>
+            <p>Thoughts, stories and ideas</p>
+        </div>
+        
+        <nav class="nav">
+            <a href="/" class="nav-link" data-page="main">Main Blog</a>
+            <a href="/secondary" class="nav-link" data-page="secondary">Secondary Blog</a>
+            <a href="/about" class="nav-link" data-page="about">About</a>
+        </nav>
+        
+        <div class="content">
+            <div class="about-section">
+                {{about}}
+                <button class="edit-about-btn" onclick="showEditAboutModal('{{pageType}}')">
+                    <span>✎</span> Edit Description
+                </button>
+            </div>
+            
+            <div class="button-section">
+                <!-- Fix the conditional display syntax by using server-side templating instead -->
+                <button class="add-post-btn" onclick="showAddPostModal('{{pageType}}')" style="display: none">
+                    <span>+</span> Add New Post
+                </button>
+            </div>
+            
+            <div class="blog-grid">
+                {{posts}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirmation modal -->
+    <div id="confirmDeleteModal" class="modal">
+        <div class="modal-content confirm-delete-box">
+            <h3>Delete Post</h3>
+            <p>Are you sure you want to delete this post?</p>
+            <div class="form-group">
+                <label for="deletePassword">Password:</label>
+                <input type="password" id="deletePassword" required>
+            </div>
+            <div class="confirm-delete-buttons">
+                <button class="confirm-yes" onclick="deletePost()">Yes, Delete</button>
+                <button class="confirm-no" onclick="closeDeleteModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add post modal -->
+    <div id="addPostModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Post</h3>
+                <button class="close-btn" onclick="closeAddPostModal()">&times;</button>
+            </div>
+            <form id="addPostForm" onsubmit="return addNewPost(event)" enctype="multipart/form-data">
+                <input type="hidden" id="postPageType" value="main">
+                <div class="form-group">
+                    <label for="postTitle">Title*</label>
+                    <input type="text" id="postTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="postDescription">Description*</label>
+                    <textarea id="postDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postPassword">Password*</label>
+                    <input type="password" id="postPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="postImage">Upload Image</label>
+                    <input type="file" id="postImage" accept="image/*">
+                    <p class="file-hint">Max size: 50MB. Default used if none provided.</p>
+                </div>
+                <div class="form-group">
+                    <label for="postPdf">Upload PDF</label>
+                    <input type="file" id="postPdf" accept="application/pdf">
+                    <p class="file-hint">Max size: 300MB. Default used if none provided.</p>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeAddPostModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit About modal -->
+    <div id="editAboutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Page Description</h3>
+                <button class="close-btn" onclick="closeEditAboutModal()">&times;</button>
+            </div>
+            <form id="editAboutForm" onsubmit="return updateAboutContent(event)">
+                <input type="hidden" id="aboutPageType" value="main">
+                <div class="form-group">
+                    <label for="aboutContent">Content</label>
+                    <textarea id="aboutContent" rows="6"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="aboutPassword">Password*</label>
+                    <input type="password" id="aboutPassword" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeEditAboutModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

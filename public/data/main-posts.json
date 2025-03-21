@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post one",
+      "description": "stuff",
+      "image": "images/image_1741855580282.png",
+      "pdf": "pdfs/pdf_1741855580309.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Post one",
+      "description": "stuff",
+      "image": "images/image_1741855580282.png",
+      "pdf": "pdfs/pdf_1741855580309.pdf"
+    },
+    {
+      "id": 3,
+      "title": "Post one",
+      "description": "stuff",
+      "image": "images/image_1741855580282.png",
+      "pdf": "pdfs/pdf_1741855580309.pdf"
+    }
+  ],
+  "about": "adadasdThis is for what"
+}
