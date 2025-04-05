@@ -1291,7 +1291,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log(`Multi-tenant blog system is ready. Visit /:tenantId for tenant blogs.`);
   console.log(`Admin interface available at http://localhost:${PORT}/admin`);
